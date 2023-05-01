@@ -95,7 +95,7 @@ const Product = ({ item }) => {
         </Info>
         {item?.productName}
         <br />
-        {console.log(item.variants)}
+        {/* {console.log(item.variants)} */}
         {`(${item.variants && item?.variants[0].price}/pc)`}
       </Container>
     </>

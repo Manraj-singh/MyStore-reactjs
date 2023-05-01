@@ -39,6 +39,7 @@ export const getProductsByCategory = async (
     const res = await axios.get(
       `${BASE_URL}/products/category/${categoryId}?limit=${limit}&page=${page}`
     );
+    // console.log(res.data);
     dispatch(getProductSuccess(res.data));
   } catch (err) {
     dispatch(getProductFailure());
@@ -50,6 +51,7 @@ export const getProductDetailById = async (dispatch, productId) => {
   dispatch(getProductDetailStart());
   try {
     const res = await axios.get(`${BASE_URL}/products/${productId}`);
+    // console.log(res.data);
     dispatch(getProductDetailSuccess(res.data));
   } catch (err) {
     dispatch(getProductFailure());
