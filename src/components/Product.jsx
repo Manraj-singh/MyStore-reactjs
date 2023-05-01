@@ -76,6 +76,7 @@ const Product = ({ item }) => {
   if (isLoading) {
     return <Loader />;
   }
+  const price = item?.variants[0].price;
   return (
     <>
       <Container>
@@ -102,7 +103,7 @@ const Product = ({ item }) => {
         {item?.productName}
         <br />
         {/* {console.log(item.variants)} */}
-        {`(${item.variants && item?.variants[0].price}/pc)`}
+        {`${price || 0}/pc)`}
       </Container>
     </>
   );
