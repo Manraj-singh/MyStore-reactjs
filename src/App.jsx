@@ -18,6 +18,9 @@ const App = () => {
         <Route path="/product/:productName">
           <Product />
         </Route>
+        <Route path="*">
+          <Home />
+        </Route>
       </Switch>
     </Router>
   );
