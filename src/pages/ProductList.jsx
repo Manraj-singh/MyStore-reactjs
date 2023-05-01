@@ -78,9 +78,8 @@ const ProductList = () => {
   const [filters, setFilters] = useState([]);
   const [sort, setSort] = useState("newest");
   const [pageLimit, setPageLimit] = useState(12);
-  const [totalPages, setTotalPages] = useState(
-    Math.ceil(totalItems / itemsPerPage)
-  );
+  const [totalPages, setTotalPages] = useState(5);
+  setTotalPages(Math.ceil(totalItems / itemsPerPage));
 
   //when component loads we get data as per limit
   useEffect(() => {
