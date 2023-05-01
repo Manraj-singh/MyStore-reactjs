@@ -1,6 +1,6 @@
 
 # My-store Ecommerce app
-
+**Deployed on** : https://prodo-react.netlify.app/
 Simple E-commerce app buit using Reactjs where users can see different categories and browse products as per category .users can also sort/filter products .this app has pagination feature which allows good user experience.
 
 ## Getting Started
