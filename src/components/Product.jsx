@@ -76,8 +76,12 @@ const Product = ({ item }) => {
   if (isLoading) {
     return <Loader />;
   }
-  let price =" - ";
-  price = item.variants[0].price ? item?.variants[0].price:0;
+  let price = " - ";
+  try {
+    price = item?.variants[0]?.price ? item?.variants[0].price : price;
+  } catch (err) {
+    console.log(err);
+  }
   return (
     <>
       <Container>
