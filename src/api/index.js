@@ -27,14 +27,19 @@ export const getAllcategories = async (dispatch) => {
   }
 };
 
-export const getProductsByCategory = async (dispatch, categoryId, page = 1) => {
+export const getProductsByCategory = async (
+  dispatch,
+  categoryId,
+  page = 1,
+  limit = 12
+) => {
   dispatch(getProductStart());
   try {
     const res = await axios.get(
-      `${BASE_URL}/products/category/${categoryId}?limit=10&page=${page}`
+      `${BASE_URL}/products/category/${categoryId}?limit=${limit}&page=${page}`
     );
     console.log(res.data);
-    dispatch(getProductSuccess(res.data.items));
+    dispatch(getProductSuccess(res.data));
   } catch (err) {
     dispatch(getProductFailure());
   }

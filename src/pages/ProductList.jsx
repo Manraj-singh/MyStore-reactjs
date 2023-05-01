@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { getProductsByCategory } from "../api";
 import { useDispatch, useSelector } from "react-redux";
 import DropdownMultiple from "../components/DropdownMultiple";
+import { Pagination } from "semantic-ui-react";
 
 const Container = styled.div``;
 
@@ -38,6 +39,16 @@ const Select = styled.select`
   margin-right: 20px;
   ${mobile({ margin: "10px 0px" })}
 `;
+
+const Pages = styled.div`
+  position: fixed;
+  bottom: 1vh;
+  margin: 3px auto;
+  z-index: 100;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+`;
 const Option = styled.option``;
 
 const typeFilter = [
@@ -52,19 +63,30 @@ const attributeFilter = [
 
 const ProductList = () => {
   const dispatch = useDispatch();
-  const { products: allProducts, isLoading } = useSelector(
-    (state) => state.product
-  );
+  const {
+    products: allProducts,
+    isLoading,
+    pageDetails: { totalItems, itemsPerPage },
+  } = useSelector((state) => state.product);
   const location = useLocation();
   const { id: categoryId, title } = location.state;
-  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(
+    Math.ceil(totalItems / itemsPerPage)
+  );
+  console.log(totalPages);
   const [filters, setFilters] = useState([]);
   const [sort, setSort] = useState("newest");
+  const [pageLimit, setPageLimit] = useState(12);
 
   useEffect(() => {
-    getProductsByCategory(dispatch, categoryId, page);
-  }, [categoryId, dispatch, page]);
+    getProductsByCategory(dispatch, categoryId, currentPage, pageLimit);
+  }, [categoryId, dispatch, currentPage, pageLimit]);
 
+  // Handle the click event when a page number is clicked
+  const handlePageChange = (event, data) => {
+    setCurrentPage(data.activePage);
+  };
   return (
     <Container>
       <Navbar />
@@ -119,6 +141,23 @@ const ProductList = () => {
           sort={sort}
         />
       )}
+      <Pages>
+        <Pagination
+          activePage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          firstItem={null}
+          lastItem={null}
+          siblingRange={0}
+          boundaryRange={0}
+        />
+        <span>&nbsp;</span>
+        <Select onChange={(e) => setPageLimit(e.target.value)}>
+          <Option value={12}> 12/page</Option>
+          <Option value={24}> 24/page</Option>
+          <Option value={36}> 36/page</Option>
+        </Select>
+      </Pages>
     </Container>
   );
 };

@@ -50,7 +50,8 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
-  ${mobile({ fontSize: "24px" })}
+  text-decoration: none;
+  ${mobile({ fontSize: "24px" })};
 `;
 const Right = styled.div`
   flex: 1;
@@ -66,7 +67,6 @@ const MenuItem = styled.div`
   margin-left: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
-
 const Navbar = () => {
   return (
     <Container>
@@ -79,7 +79,9 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>MYSTORE</Logo>
+          <Logo>
+            <Link to="/">MYSTORE</Link>
+          </Logo>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>

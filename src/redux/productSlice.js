@@ -7,6 +7,8 @@ const productSlice = createSlice({
     productDetail: {},
     isLoading: false,
     error: false,
+    pageDetails: {},
+    totalpage: null,
   },
   reducers: {
     getProductStart: (state) => {
@@ -22,8 +24,11 @@ const productSlice = createSlice({
     getProductSuccess: (state, action) => {
       state.isLoading = false;
       state.error = false;
-      console.log(action.payload);
-      state.products = action.payload;
+      console.log(action.payload.items);
+      state.products = action.payload.items;
+      state.pageDetails = action.payload.meta;
+      const { totalItems, itemsPerPage } = action.payload.meta;
+      state.totalpage = Math.ceil(totalItems / itemsPerPage);
     },
     getProductDetailSuccess: (state, action) => {
       state.isLoading = false;

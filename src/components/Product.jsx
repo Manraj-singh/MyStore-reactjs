@@ -94,6 +94,8 @@ const Product = ({ item }) => {
           </Icon>
         </Info>
         {item.productName}
+        <br />
+        {`(${item?.variants[0].price}/pc)`}
       </Container>
     </>
   );
