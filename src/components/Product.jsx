@@ -3,9 +3,10 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
+import Loader from "./Loader";
 const Info = styled.div`
   opacity: 0;
   width: 100%;
@@ -70,6 +71,11 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
+  const { isLoading } = useSelector((state) => state.product);
+
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <>
       <Container>
