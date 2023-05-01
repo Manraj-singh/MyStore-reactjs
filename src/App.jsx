@@ -17,22 +17,20 @@ const App = () => {
     history.push("/");
   }
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/category/:category">
-          <ProductList />
-        </Route>
-        <Route path="/product/:productName">
-          <Product />
-        </Route>
-        <Route path="*">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="/category/:category">
+        <ProductList />
+      </Route>
+      <Route path="/product/:productName">
+        <Product />
+      </Route>
+      <Route path="*">
+        <Home />
+      </Route>
+    </Switch>
   );
 };
 

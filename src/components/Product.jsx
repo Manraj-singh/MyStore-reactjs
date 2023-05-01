@@ -76,7 +76,8 @@ const Product = ({ item }) => {
   if (isLoading) {
     return <Loader />;
   }
-  const price = item.variants[0] && item?.variants[0].price;
+  let price =" - ";
+  price = item.variants[0].price ? item?.variants[0].price:0;
   return (
     <>
       <Container>
