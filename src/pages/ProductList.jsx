@@ -139,30 +139,32 @@ const ProductList = () => {
         <Loader />
       ) : (
         // we pass the filter options and sort options to products
-        <Products
-          title={title}
-          allProducts={allProducts}
-          filters={filters}
-          sort={sort}
-        />
+        <>
+          <Products
+            title={title}
+            allProducts={allProducts}
+            filters={filters}
+            sort={sort}
+          />
+          <Pages>
+            <Pagination
+              activePage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+              firstItem={null}
+              lastItem={null}
+              siblingRange={0}
+              boundaryRange={0}
+            />
+            <span>&nbsp;</span>
+            <Select onChange={(e) => setPageLimit(e.target.value)}>
+              <Option value={12}> 12/page</Option>
+              <Option value={24}> 24/page</Option>
+              <Option value={36}> 36/page</Option>
+            </Select>
+          </Pages>
+        </>
       )}
-      <Pages>
-        <Pagination
-          activePage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-          firstItem={null}
-          lastItem={null}
-          siblingRange={0}
-          boundaryRange={0}
-        />
-        <span>&nbsp;</span>
-        <Select onChange={(e) => setPageLimit(e.target.value)}>
-          <Option value={12}> 12/page</Option>
-          <Option value={24}> 24/page</Option>
-          <Option value={36}> 36/page</Option>
-        </Select>
-      </Pages>
     </Container>
   );
 };
