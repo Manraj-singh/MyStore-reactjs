@@ -42,7 +42,47 @@ alternatively download the zip file
 
 
 ## Folder Structure
-
+```bash
+.gitignore
+README.md
+package-lock.json
+package.json
+public
+   |-- _redirects
+   |-- favicon.ico
+   |-- index.html
+   |-- logo192.png
+   |-- logo512.png
+   |-- manifest.json
+   |-- robots.txt
+src
+   |-- App.jsx
+   |-- api
+   |   |-- index.js
+   |-- components
+   |   |-- Announcement.jsx
+   |   |-- Categories.jsx
+   |   |-- CategoryItem.jsx
+   |   |-- DropdownMultiple.jsx
+   |   |-- Loader.jsx
+   |   |-- Navbar.jsx
+   |   |-- Product.jsx
+   |   |-- Products.jsx
+   |   |-- Slider.jsx
+   |-- constants
+   |   |-- data.js
+   |   |-- urls.js
+   |-- index.js
+   |-- pages
+   |   |-- Home.jsx
+   |   |-- Product.jsx
+   |   |-- ProductList.jsx
+   |-- redux
+   |   |-- categorySlice.js
+   |   |-- productSlice.js
+   |   |-- store.js
+   |-- responsive.js
+```
 
 
 ##
