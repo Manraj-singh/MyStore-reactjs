@@ -1,3 +1,6 @@
+// * THIS FILE CONTAINS ALL THE API CALLS TO ENDPOINTS AND DISPATCHES THE RESPONSE DATA TO REDUCER
+//FOR EACH CALL :
+//we set loading to true > await response data > dispatch data to reducer  > set loading to false
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
 import {
@@ -13,10 +16,7 @@ import {
   getProductSuccess,
 } from "../redux/productSlice";
 
-//set loading as true
-// call api in try catch
-//set loading false
-//call this in useefferct
+// for getting all the categories
 export const getAllcategories = async (dispatch) => {
   dispatch(getCategoryStart());
   try {
@@ -27,6 +27,7 @@ export const getAllcategories = async (dispatch) => {
   }
 };
 
+//for getting products as per the category
 export const getProductsByCategory = async (
   dispatch,
   categoryId,
@@ -38,13 +39,13 @@ export const getProductsByCategory = async (
     const res = await axios.get(
       `${BASE_URL}/products/category/${categoryId}?limit=${limit}&page=${page}`
     );
-    console.log(res.data);
     dispatch(getProductSuccess(res.data));
   } catch (err) {
     dispatch(getProductFailure());
   }
 };
 
+//for getting individual product details
 export const getProductDetailById = async (dispatch, productId) => {
   dispatch(getProductDetailStart());
   try {

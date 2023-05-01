@@ -8,10 +8,12 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 `;
-
+//WE GET FILTER AND SORTIING OPTIONS IN THIS COMPONENT
+//WE USE REDUX STATE TO SORT AND FILTER PRODUCTS
 const Products = ({ title, allProducts, filters, sort }) => {
   const [filteredProducts, setFilteredProducts] = useState([...allProducts]);
 
+  //*FOR SORTING BASED ON GIVEN CONDITION
   useEffect(() => {
     switch (sort) {
       case "newest":
@@ -61,6 +63,7 @@ const Products = ({ title, allProducts, filters, sort }) => {
     }
   }, [sort, allProducts]);
 
+  //*FOR FILTERING , IT RETURNS ALL PRODUCTS WHICH FULLFILLS ALL FILTER CONDITION
   useEffect(() => {
     const filtered = allProducts.filter((product) =>
       filters.every((filter) => product[filter])
@@ -68,6 +71,7 @@ const Products = ({ title, allProducts, filters, sort }) => {
 
     setFilteredProducts(filtered);
   }, [filters, allProducts]);
+
   return (
     <Container>
       {filteredProducts?.length === 0

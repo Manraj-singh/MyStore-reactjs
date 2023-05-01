@@ -1,3 +1,6 @@
+//*THIS COMPONENT TAKE PROPS AND SHOWS DROPDOWN OF GIVEN PROPS
+//USED IN FILTERS OPTIONS
+
 import React from "react";
 import { Dropdown } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";

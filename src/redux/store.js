@@ -1,3 +1,5 @@
+//*THIS FILE CAONTAINS THE STORE CONFIGURATION
+
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import categoryReducer from "./categorySlice";
 import productReducer from "./productSlice";
@@ -13,11 +15,14 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+//store will be saved in localstorage with name "root"
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
 };
+
+//if we have multiple reducers we combine it make single root reducer
 const rootReducer = combineReducers({
   category: categoryReducer,
   product: productReducer,

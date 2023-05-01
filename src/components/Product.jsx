@@ -93,9 +93,10 @@ const Product = ({ item }) => {
             <FavoriteBorderOutlined />
           </Icon>
         </Info>
-        {item.productName}
+        {item?.productName}
         <br />
-        {`(${item?.variants[0].price}/pc)`}
+        {console.log(item.variants)}
+        {`(${item.variants && item?.variants[0].price}/pc)`}
       </Container>
     </>
   );

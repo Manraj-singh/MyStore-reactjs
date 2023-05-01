@@ -1,3 +1,5 @@
+//*THIS FILE CONTAINS REDUX OF PRODUCTS
+//it contains initialstate , actions and reducers related to products
 import { createSlice } from "@reduxjs/toolkit";
 
 const productSlice = createSlice({
@@ -24,7 +26,6 @@ const productSlice = createSlice({
     getProductSuccess: (state, action) => {
       state.isLoading = false;
       state.error = false;
-      console.log(action.payload.items);
       state.products = action.payload.items;
       state.pageDetails = action.payload.meta;
       const { totalItems, itemsPerPage } = action.payload.meta;

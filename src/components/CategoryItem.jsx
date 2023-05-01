@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import { IMAGES_BASE_URL } from "../constants/urls";
 
+//? -------STYLED COMPONENTS--------
+
 const Container = styled.div`
   flex: 1;
   margin: 3px;
@@ -43,6 +45,7 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
+//category card which contains category image ,name and see products button
 const CategoryItem = ({ item }) => {
   return (
     <Container>

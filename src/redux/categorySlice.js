@@ -1,3 +1,6 @@
+//*THIS FILE CONTAINS REDUX OF CATEGORIES
+//it contains initialstate , actions and reducers related to CATEGORY
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const categorySlice = createSlice({

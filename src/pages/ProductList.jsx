@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DropdownMultiple from "../components/DropdownMultiple";
 import { Pagination } from "semantic-ui-react";
 
+//? -------STYLED COMPONENTS--------
 const Container = styled.div``;
 
 const Title = styled.h1`
@@ -51,6 +52,7 @@ const Pages = styled.div`
 `;
 const Option = styled.option``;
 
+//THESE ARE OPTIONS WHICH WE GIVE TO DROPDOWN COMPONENT
 const typeFilter = [
   { key: "readyProduct", text: "Ready Product", value: "readyProduct" },
   { key: "madeToOrder", text: "Made-To-Order", value: "madeToOrder" },
@@ -62,23 +64,25 @@ const attributeFilter = [
 ];
 
 const ProductList = () => {
+  const location = useLocation();
+  const { id: categoryId, title } = location.state;
   const dispatch = useDispatch();
   const {
     products: allProducts,
     isLoading,
     pageDetails: { totalItems, itemsPerPage },
   } = useSelector((state) => state.product);
-  const location = useLocation();
-  const { id: categoryId, title } = location.state;
+
+  //STATES
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(
-    Math.ceil(totalItems / itemsPerPage)
-  );
-  console.log(totalPages);
   const [filters, setFilters] = useState([]);
   const [sort, setSort] = useState("newest");
   const [pageLimit, setPageLimit] = useState(12);
+  const [totalPages, setTotalPages] = useState(
+    Math.ceil(totalItems / itemsPerPage)
+  );
 
+  //when component loads we get data as per limit
   useEffect(() => {
     getProductsByCategory(dispatch, categoryId, currentPage, pageLimit);
   }, [categoryId, dispatch, currentPage, pageLimit]);
@@ -134,6 +138,7 @@ const ProductList = () => {
       {isLoading ? (
         <Loader />
       ) : (
+        // we pass the filter options and sort options to products
         <Products
           title={title}
           allProducts={allProducts}

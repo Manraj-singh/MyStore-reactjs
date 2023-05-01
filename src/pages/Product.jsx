@@ -9,8 +9,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductDetailById } from "../api";
 
+//? -------STYLED COMPONENTS--------
 const Container = styled.div``;
-
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
@@ -105,13 +105,15 @@ const Button = styled.button`
 const Product = () => {
   const location = useLocation();
   const productId = location.state.productId;
-
+  const dispatch = useDispatch();
+  //STATES
   const [quantity, setQuantity] = useState(1);
 
-  const dispatch = useDispatch();
   const { productDetail: product, isLoading } = useSelector(
     (state) => state.product
   );
+
+  //when the component mounts we call api to get product details which we extract from redux state
   useEffect(() => {
     getProductDetailById(dispatch, productId);
   }, [productId, dispatch]);

@@ -5,6 +5,9 @@ import { useEffect } from "react";
 import { getAllcategories } from "../api";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader";
+
+//? -------STYLED COMPONENTS--------
+
 const Container = styled.div`
   display: flex;
   padding: 20px;
@@ -15,12 +18,11 @@ const Container = styled.div`
 const Categories = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.category.categories);
+
+  const { isLoading } = useSelector((state) => state.category);
   useEffect(() => {
     getAllcategories(dispatch);
   }, [dispatch]);
-
-  const { isLoading } = useSelector((state) => state.category);
-
   if (isLoading) {
     return <Loader />;
   }

@@ -1,3 +1,5 @@
+// THIS  IS A ANNNOUNCEMENT COMPONENT WHICH SHOWS OFFERS OR SALE
+
 import styled from "styled-components";
 
 const Container = styled.div`

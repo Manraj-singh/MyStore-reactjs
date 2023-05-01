@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { sliderItems } from "../constants/data";
 import { mobile } from "../responsive";
 
+//? -------STYLED COMPONENTS--------
+
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -59,6 +61,7 @@ const Image = styled.img`
   object-fit: fill;
 `;
 
+//THIS IS SLIDER COMPONENT PRESENT IN HOME PAGES
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   setTimeout(() => {

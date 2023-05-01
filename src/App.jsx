@@ -4,6 +4,7 @@ import ProductList from "./pages/ProductList";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+//*Defining our routes
 const App = () => {
   return (
     <Router>
