@@ -1,6 +1,7 @@
 import Product from "./pages/Product";
 import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
+import { useHistory } from "react-router-dom";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -9,9 +10,11 @@ import { useSelector } from "react-redux";
 const App = () => {
   const errorP = useSelector((state) => state.product.error);
   const errorC = useSelector((state) => state.category.error);
+  const history = useHistory();
   if (errorP || errorC) {
     // !show error component
-    return <h1>Something went wrong, try refreshing the page</h1>;
+    alert("Something went wrong !!");
+    history.push("/");
   }
   return (
     <Router>
