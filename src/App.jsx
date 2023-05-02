@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
 import { useHistory } from "react-router-dom";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 //*Defining our routes

@@ -71,6 +71,7 @@ const ProductList = () => {
     products: allProducts,
     isLoading,
     pageDetails: { totalItems, itemsPerPage },
+    totalPages: totPages,
   } = useSelector((state) => state.product);
 
   //STATES
@@ -78,8 +79,13 @@ const ProductList = () => {
   const [filters, setFilters] = useState([]);
   const [sort, setSort] = useState("newest");
   const [pageLimit, setPageLimit] = useState(12);
-  const [totalPages, setTotalPages] = useState(5);
-  setTotalPages(Math.ceil(totalItems / itemsPerPage));
+  const [totalPages, setTotalPages] = useState(
+    Math.ceil(totalItems / itemsPerPage)
+  );
+
+  useEffect(() => {
+    setTotalPages(Math.ceil(totalItems / itemsPerPage));
+  }, [totPages]);
 
   //when component loads we get data as per limit
   useEffect(() => {
@@ -90,6 +96,7 @@ const ProductList = () => {
   const handlePageChange = (event, data) => {
     setCurrentPage(data.activePage);
   };
+  console.log(pageLimit);
   return (
     <Container>
       <Navbar />
@@ -148,7 +155,7 @@ const ProductList = () => {
           <Pages>
             <Pagination
               activePage={currentPage}
-              totalPages={totalPages}
+              totalPages={totalPages || totPages || 10}
               onPageChange={handlePageChange}
               firstItem={null}
               lastItem={null}
@@ -156,7 +163,7 @@ const ProductList = () => {
               boundaryRange={0}
             />
             <span>&nbsp;</span>
-            <Select onChange={(e) => setPageLimit(e.target.value)}>
+            <Select onClick={(e) => setPageLimit(e.target.value)}>
               <Option value={12}> 12/page</Option>
               <Option value={24}> 24/page</Option>
               <Option value={36}> 36/page</Option>
