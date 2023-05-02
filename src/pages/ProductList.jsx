@@ -163,7 +163,10 @@ const ProductList = () => {
               boundaryRange={0}
             />
             <span>&nbsp;</span>
-            <Select onClick={(e) => setPageLimit(e.target.value)}>
+            <Select
+              value={pageLimit}
+              onChange={(e) => setPageLimit(e.target.value)}
+            >
               <Option value={12}> 12/page</Option>
               <Option value={24}> 24/page</Option>
               <Option value={36}> 36/page</Option>
