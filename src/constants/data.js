@@ -1,14 +1,28 @@
 export const sliderItems = [
   {
     id: 1,
-    img: "https://s3.ap-south-1.amazonaws.com/prodo-files-upload/files/d785b6df-6677-4496-a686-a7919870cc98-homeB2.jpg",
+    img: "https://images-eu.ssl-images-amazon.com/images/G/31/amazonservices/landing/PC1._CB603592298_.jpg",
   },
   {
     id: 2,
-    img: "https://s3.ap-south-1.amazonaws.com/prodo-files-upload/files/f74b2d39-0044-4223-b70d-d6ba6bbb678f-homeB1.jpg",
+    img: "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/June23/ATF/BAU/luggage/BTS/3000._CB603588364_.jpg",
   },
   {
     id: 3,
-    img: "https://s3.ap-south-1.amazonaws.com/prodo-files-upload/files/cd93fbe2-5157-4431-a7da-92cf1de8cd30-p4-sustainp.jpg",
+    img: "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/June23/ATF/BAU/luggage/BTS/3000._CB603588364_.jpg",
   },
 ];
+// export const sliderItems = [
+//   {
+//     id: 1,
+//     img: "https://rukminim1.flixcart.com/fk-p-flap/844/140/image/0a0eaa1607df5fb8.jpg?q=50",
+//   },
+//   {
+//     id: 2,
+//     img: "https://rukminim1.flixcart.com/fk-p-flap/50/50/image/f5aad3e48a09bd75.jpeg?q=50",
+//   },
+//   {
+//     id: 3,
+//     img: "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Softlines_JWL_SH_GW_Assets/June23/ATF/BAU/luggage/BTS/3000._CB603588364_.jpg",
+//   },
+// ];
